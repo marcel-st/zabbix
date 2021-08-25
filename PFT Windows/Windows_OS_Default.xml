@@ -1,0 +1,379 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<zabbix_export>
+    <version>5.0</version>
+    <date>2021-08-25T22:18:17Z</date>
+    <groups>
+        <group>
+            <name>Templates/Modules</name>
+        </group>
+        <group>
+            <name>Templates/Operating systems</name>
+        </group>
+    </groups>
+    <templates>
+        <template>
+            <template>Template CFIT - OS Windows beheer</template>
+            <name>Template CFIT - OS Windows beheer</name>
+            <description>CFIT Template for OS Windows&#13;
+&#13;
+Owner : Platform OS beheer Windows&#13;
+Platform owner : Nick Visser&#13;
+Creator : Marcel Stangenberger&#13;
+Version : 0.1</description>
+            <templates>
+                <template>
+                    <name>Template CFIT - OS Windows Services</name>
+                </template>
+                <template>
+                    <name>Template Module Windows CPU by Zabbix agent active</name>
+                </template>
+                <template>
+                    <name>Template Module Windows filesystems by Zabbix agent active</name>
+                </template>
+                <template>
+                    <name>Template Module Windows generic by Zabbix agent active</name>
+                </template>
+                <template>
+                    <name>Template Module Windows memory by Zabbix agent active</name>
+                </template>
+                <template>
+                    <name>Template Module Windows network by Zabbix agent active</name>
+                </template>
+                <template>
+                    <name>Template Module Windows physical disks by Zabbix agent active</name>
+                </template>
+                <template>
+                    <name>Template Module Zabbix agent active</name>
+                </template>
+            </templates>
+            <groups>
+                <group>
+                    <name>Templates/Operating systems</name>
+                </group>
+            </groups>
+            <screens>
+                <screen>
+                    <name>System performance</name>
+                    <hsize>2</hsize>
+                    <vsize>6</vsize>
+                    <screen_items>
+                        <screen_item>
+                            <resourcetype>0</resourcetype>
+                            <style>0</style>
+                            <resource>
+                                <name>CPU usage</name>
+                                <host>Template CFIT - OS Windows beheer</host>
+                            </resource>
+                            <width>500</width>
+                            <height>100</height>
+                            <x>0</x>
+                            <y>0</y>
+                            <colspan>1</colspan>
+                            <rowspan>1</rowspan>
+                            <elements>25</elements>
+                            <valign>0</valign>
+                            <halign>0</halign>
+                            <dynamic>0</dynamic>
+                            <sort_triggers>0</sort_triggers>
+                            <url/>
+                            <application/>
+                            <max_columns>3</max_columns>
+                        </screen_item>
+                        <screen_item>
+                            <resourcetype>1</resourcetype>
+                            <style>0</style>
+                            <resource>
+                                <key>perf_counter_en[&quot;\System\Processor Queue Length&quot;]</key>
+                                <host>Template CFIT - OS Windows beheer</host>
+                            </resource>
+                            <width>500</width>
+                            <height>100</height>
+                            <x>1</x>
+                            <y>0</y>
+                            <colspan>1</colspan>
+                            <rowspan>1</rowspan>
+                            <elements>25</elements>
+                            <valign>0</valign>
+                            <halign>0</halign>
+                            <dynamic>0</dynamic>
+                            <sort_triggers>0</sort_triggers>
+                            <url/>
+                            <application/>
+                            <max_columns>3</max_columns>
+                        </screen_item>
+                        <screen_item>
+                            <resourcetype>0</resourcetype>
+                            <style>0</style>
+                            <resource>
+                                <name>Memory utilization</name>
+                                <host>Template CFIT - OS Windows beheer</host>
+                            </resource>
+                            <width>500</width>
+                            <height>100</height>
+                            <x>0</x>
+                            <y>1</y>
+                            <colspan>1</colspan>
+                            <rowspan>1</rowspan>
+                            <elements>25</elements>
+                            <valign>0</valign>
+                            <halign>0</halign>
+                            <dynamic>0</dynamic>
+                            <sort_triggers>0</sort_triggers>
+                            <url/>
+                            <application/>
+                            <max_columns>3</max_columns>
+                        </screen_item>
+                        <screen_item>
+                            <resourcetype>0</resourcetype>
+                            <style>0</style>
+                            <resource>
+                                <name>Swap usage</name>
+                                <host>Template CFIT - OS Windows beheer</host>
+                            </resource>
+                            <width>500</width>
+                            <height>100</height>
+                            <x>1</x>
+                            <y>1</y>
+                            <colspan>1</colspan>
+                            <rowspan>1</rowspan>
+                            <elements>25</elements>
+                            <valign>0</valign>
+                            <halign>0</halign>
+                            <dynamic>0</dynamic>
+                            <sort_triggers>0</sort_triggers>
+                            <url/>
+                            <application/>
+                            <max_columns>3</max_columns>
+                        </screen_item>
+                        <screen_item>
+                            <resourcetype>20</resourcetype>
+                            <style>0</style>
+                            <resource>
+                                <name>{#FSNAME}: Disk space usage</name>
+                                <host>Template CFIT - OS Windows beheer</host>
+                            </resource>
+                            <width>500</width>
+                            <height>100</height>
+                            <x>0</x>
+                            <y>2</y>
+                            <colspan>2</colspan>
+                            <rowspan>1</rowspan>
+                            <elements>25</elements>
+                            <valign>0</valign>
+                            <halign>0</halign>
+                            <dynamic>0</dynamic>
+                            <sort_triggers>0</sort_triggers>
+                            <url/>
+                            <application/>
+                            <max_columns>3</max_columns>
+                        </screen_item>
+                        <screen_item>
+                            <resourcetype>20</resourcetype>
+                            <style>0</style>
+                            <resource>
+                                <name>{#DEVNAME}: Disk read/write rates</name>
+                                <host>Template CFIT - OS Windows beheer</host>
+                            </resource>
+                            <width>500</width>
+                            <height>100</height>
+                            <x>0</x>
+                            <y>3</y>
+                            <colspan>2</colspan>
+                            <rowspan>1</rowspan>
+                            <elements>25</elements>
+                            <valign>0</valign>
+                            <halign>0</halign>
+                            <dynamic>0</dynamic>
+                            <sort_triggers>0</sort_triggers>
+                            <url/>
+                            <application/>
+                            <max_columns>3</max_columns>
+                        </screen_item>
+                        <screen_item>
+                            <resourcetype>20</resourcetype>
+                            <style>0</style>
+                            <resource>
+                                <name>{#DEVNAME}: Disk utilization and queue</name>
+                                <host>Template CFIT - OS Windows beheer</host>
+                            </resource>
+                            <width>500</width>
+                            <height>100</height>
+                            <x>0</x>
+                            <y>4</y>
+                            <colspan>2</colspan>
+                            <rowspan>1</rowspan>
+                            <elements>25</elements>
+                            <valign>0</valign>
+                            <halign>0</halign>
+                            <dynamic>0</dynamic>
+                            <sort_triggers>0</sort_triggers>
+                            <url/>
+                            <application/>
+                            <max_columns>3</max_columns>
+                        </screen_item>
+                        <screen_item>
+                            <resourcetype>20</resourcetype>
+                            <style>0</style>
+                            <resource>
+                                <name>Interface {#IFNAME}({#IFALIAS}): Network traffic</name>
+                                <host>Template CFIT - OS Windows beheer</host>
+                            </resource>
+                            <width>500</width>
+                            <height>100</height>
+                            <x>0</x>
+                            <y>5</y>
+                            <colspan>2</colspan>
+                            <rowspan>1</rowspan>
+                            <elements>25</elements>
+                            <valign>0</valign>
+                            <halign>0</halign>
+                            <dynamic>0</dynamic>
+                            <sort_triggers>0</sort_triggers>
+                            <url/>
+                            <application/>
+                            <max_columns>3</max_columns>
+                        </screen_item>
+                    </screen_items>
+                </screen>
+            </screens>
+        </template>
+        <template>
+            <template>Template CFIT - OS Windows Services</template>
+            <name>Template CFIT - OS Windows Services</name>
+            <description>Windows services template for OS Windows management&#13;
+Property of Conclusion Future IT&#13;
+&#13;
+Platform owner : Nick Visser&#13;
+version 0.1</description>
+            <groups>
+                <group>
+                    <name>Templates/Modules</name>
+                </group>
+            </groups>
+            <applications>
+                <application>
+                    <name>Services</name>
+                </application>
+            </applications>
+            <discovery_rules>
+                <discovery_rule>
+                    <name>Windows services discovery</name>
+                    <type>ZABBIX_ACTIVE</type>
+                    <key>service.discovery</key>
+                    <delay>5m</delay>
+                    <filter>
+                        <evaltype>AND</evaltype>
+                        <conditions>
+                            <condition>
+                                <macro>{#SERVICE.NAME}</macro>
+                                <value>{$SERVICE.NAME.MATCHES}</value>
+                                <formulaid>A</formulaid>
+                            </condition>
+                            <condition>
+                                <macro>{#SERVICE.NAME}</macro>
+                                <value>{$SERVICE.NAME.NOT_MATCHES}</value>
+                                <operator>NOT_MATCHES_REGEX</operator>
+                                <formulaid>B</formulaid>
+                            </condition>
+                            <condition>
+                                <macro>{#SERVICE.STARTUPNAME}</macro>
+                                <value>{$SERVICE.STARTUPNAME.MATCHES}</value>
+                                <formulaid>C</formulaid>
+                            </condition>
+                            <condition>
+                                <macro>{#SERVICE.STARTUPNAME}</macro>
+                                <value>{$SERVICE.STARTUPNAME.NOT_MATCHES}</value>
+                                <operator>NOT_MATCHES_REGEX</operator>
+                                <formulaid>D</formulaid>
+                            </condition>
+                        </conditions>
+                    </filter>
+                    <description>Discovery of Windows services of different types as defined in template's macros.</description>
+                    <item_prototypes>
+                        <item_prototype>
+                            <name>State of service &quot;{#SERVICE.NAME}&quot; ({#SERVICE.DISPLAYNAME})</name>
+                            <type>ZABBIX_ACTIVE</type>
+                            <key>service.info[&quot;{#SERVICE.NAME}&quot;,state]</key>
+                            <history>7d</history>
+                            <applications>
+                                <application>
+                                    <name>Services</name>
+                                </application>
+                            </applications>
+                            <valuemap>
+                                <name>Windows service state</name>
+                            </valuemap>
+                            <trigger_prototypes>
+                                <trigger_prototype>
+                                    <expression>{min(#3)}&lt;&gt;0</expression>
+                                    <name>&quot;{#SERVICE.NAME}&quot; ({#SERVICE.DISPLAYNAME}) is not running (startup type {#SERVICE.STARTUPNAME})</name>
+                                    <priority>AVERAGE</priority>
+                                    <description>The service has a state other than &quot;Running&quot; for the last three times.</description>
+                                </trigger_prototype>
+                            </trigger_prototypes>
+                        </item_prototype>
+                    </item_prototypes>
+                </discovery_rule>
+            </discovery_rules>
+            <macros>
+                <macro>
+                    <macro>{$SERVICE.NAME.MATCHES}</macro>
+                    <value>^Eventlog|LanmanServer|MpsSvc|MSDTC|PlugPlay|Power|RpcEptMapper|RpcSs|SamSs|Schedule|SENS|UxSms|Winmgmt|WinRM|DcomLaunch|Dnscache|EventSystem|nsi|SystemEventsBroker|UALSVC|Wcmsvc|WinDefend|SysMain|W32Time|Zabbix Agent|Zabbix Agent 2|LSM$</value>
+                </macro>
+                <macro>
+                    <macro>{$SERVICE.STARTUPNAME.MATCHES}</macro>
+                    <value>^automatic|automatic delayed$</value>
+                    <description>This macro is used in Service discovery. Can be overridden on the host or linked template level.</description>
+                </macro>
+                <macro>
+                    <macro>{$SERVICE.STARTUPNAME.NOT_MATCHES}</macro>
+                    <value>^manual|disabled$</value>
+                    <description>This macro is used in Service discovery. Can be overridden on the host or linked template level.</description>
+                </macro>
+            </macros>
+        </template>
+    </templates>
+    <value_maps>
+        <value_map>
+            <name>Windows service state</name>
+            <mappings>
+                <mapping>
+                    <value>0</value>
+                    <newvalue>Running</newvalue>
+                </mapping>
+                <mapping>
+                    <value>1</value>
+                    <newvalue>Paused</newvalue>
+                </mapping>
+                <mapping>
+                    <value>2</value>
+                    <newvalue>Start pending</newvalue>
+                </mapping>
+                <mapping>
+                    <value>3</value>
+                    <newvalue>Pause pending</newvalue>
+                </mapping>
+                <mapping>
+                    <value>4</value>
+                    <newvalue>Continue pending</newvalue>
+                </mapping>
+                <mapping>
+                    <value>5</value>
+                    <newvalue>Stop pending</newvalue>
+                </mapping>
+                <mapping>
+                    <value>6</value>
+                    <newvalue>Stopped</newvalue>
+                </mapping>
+                <mapping>
+                    <value>7</value>
+                    <newvalue>Unknown</newvalue>
+                </mapping>
+                <mapping>
+                    <value>255</value>
+                    <newvalue>No such service</newvalue>
+                </mapping>
+            </mappings>
+        </value_map>
+    </value_maps>
+</zabbix_export>
