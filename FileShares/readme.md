@@ -11,7 +11,11 @@ Load the testShare.xml template (compatible with 5.0 and higher)
 Attach the template to an host
 
 set the following macro variables
+
 `{!HOST_NAME}  IP or HOST of the fileserver`
+
 `{!SHARE_NAME} name of the share`
+
 `{!USERNAME} username for access to the share`
+
 `{!PASSWORD} password for access to the share`
