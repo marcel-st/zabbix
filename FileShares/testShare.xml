@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<zabbix_export>
+    <version>5.0</version>
+    <date>2021-08-26T12:51:28Z</date>
+    <groups>
+        <group>
+            <name>Windows</name>
+        </group>
+    </groups>
+    <templates>
+        <template>
+            <template>Template Check fileshare</template>
+            <name>Template Check fileshare</name>
+            <description>Template to check for fileshare availibility from agent to external hosts.&#13;
+Written by Marcel Stangenberger</description>
+            <groups>
+                <group>
+                    <name>Windows</name>
+                </group>
+            </groups>
+            <items>
+                <item>
+                    <name>Fileshare availability</name>
+                    <type>ZABBIX_ACTIVE</type>
+                    <key>checkShare[{$HOST_IP},{$SHARE_NAME},{$USERNAME},{$PASSWORD}]</key>
+                    <delay>5m</delay>
+                    <history>30d</history>
+                    <valuemap>
+                        <name>Alarm state</name>
+                    </valuemap>
+                    <triggers>
+                        <trigger>
+                            <expression>{last(#2)}&lt;&gt;0</expression>
+                            <name>Fileshare is unreachable</name>
+                            <priority>AVERAGE</priority>
+                            <description>The fileshare is unreachable after 2 attempts</description>
+                            <manual_close>YES</manual_close>
+                        </trigger>
+                    </triggers>
+                </item>
+            </items>
+            <macros>
+                <macro>
+                    <macro>{$HOST_IP}</macro>
+                </macro>
+                <macro>
+                    <macro>{$PASSWORD}</macro>
+                </macro>
+                <macro>
+                    <macro>{$SHARE_NAME}</macro>
+                </macro>
+                <macro>
+                    <macro>{$USERNAME}</macro>
+                </macro>
+            </macros>
+        </template>
+    </templates>
+    <value_maps>
+        <value_map>
+            <name>Alarm state</name>
+            <mappings>
+                <mapping>
+                    <value>0</value>
+                    <newvalue>Ok</newvalue>
+                </mapping>
+                <mapping>
+                    <value>1</value>
+                    <newvalue>Alarm</newvalue>
+                </mapping>
+            </mappings>
+        </value_map>
+    </value_maps>
+</zabbix_export>
