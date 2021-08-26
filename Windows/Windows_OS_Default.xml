@@ -12,17 +12,16 @@
     </groups>
     <templates>
         <template>
-            <template>Template CFIT - OS Windows beheer</template>
-            <name>Template CFIT - OS Windows beheer</name>
-            <description>CFIT Template for OS Windows&#13;
+            <template>Template Base - OS Windows beheer</template>
+            <name>Template Base - OS Windows beheer</name>
+            <description>Base Template for OS Windows&#13;
 &#13;
 Owner : Platform OS beheer Windows&#13;
-Platform owner : Nick Visser&#13;
 Creator : Marcel Stangenberger&#13;
 Version : 0.1</description>
             <templates>
                 <template>
-                    <name>Template CFIT - OS Windows Services</name>
+                    <name>Template Base - OS Windows Services</name>
                 </template>
                 <template>
                     <name>Template Module Windows CPU by Zabbix agent active</name>
@@ -62,7 +61,7 @@ Version : 0.1</description>
                             <style>0</style>
                             <resource>
                                 <name>CPU usage</name>
-                                <host>Template CFIT - OS Windows beheer</host>
+                                <host>Template Base - OS Windows beheer</host>
                             </resource>
                             <width>500</width>
                             <height>100</height>
@@ -84,7 +83,7 @@ Version : 0.1</description>
                             <style>0</style>
                             <resource>
                                 <key>perf_counter_en[&quot;\System\Processor Queue Length&quot;]</key>
-                                <host>Template CFIT - OS Windows beheer</host>
+                                <host>Template Base - OS Windows beheer</host>
                             </resource>
                             <width>500</width>
                             <height>100</height>
@@ -106,7 +105,7 @@ Version : 0.1</description>
                             <style>0</style>
                             <resource>
                                 <name>Memory utilization</name>
-                                <host>Template CFIT - OS Windows beheer</host>
+                                <host>Template Base - OS Windows beheer</host>
                             </resource>
                             <width>500</width>
                             <height>100</height>
@@ -128,7 +127,7 @@ Version : 0.1</description>
                             <style>0</style>
                             <resource>
                                 <name>Swap usage</name>
-                                <host>Template CFIT - OS Windows beheer</host>
+                                <host>Template Base - OS Windows beheer</host>
                             </resource>
                             <width>500</width>
                             <height>100</height>
@@ -150,7 +149,7 @@ Version : 0.1</description>
                             <style>0</style>
                             <resource>
                                 <name>{#FSNAME}: Disk space usage</name>
-                                <host>Template CFIT - OS Windows beheer</host>
+                                <host>Template Base - OS Windows beheer</host>
                             </resource>
                             <width>500</width>
                             <height>100</height>
@@ -172,7 +171,7 @@ Version : 0.1</description>
                             <style>0</style>
                             <resource>
                                 <name>{#DEVNAME}: Disk read/write rates</name>
-                                <host>Template CFIT - OS Windows beheer</host>
+                                <host>Template Base - OS Windows beheer</host>
                             </resource>
                             <width>500</width>
                             <height>100</height>
@@ -194,7 +193,7 @@ Version : 0.1</description>
                             <style>0</style>
                             <resource>
                                 <name>{#DEVNAME}: Disk utilization and queue</name>
-                                <host>Template CFIT - OS Windows beheer</host>
+                                <host>Template Base - OS Windows beheer</host>
                             </resource>
                             <width>500</width>
                             <height>100</height>
@@ -216,7 +215,7 @@ Version : 0.1</description>
                             <style>0</style>
                             <resource>
                                 <name>Interface {#IFNAME}({#IFALIAS}): Network traffic</name>
-                                <host>Template CFIT - OS Windows beheer</host>
+                                <host>Template Base - OS Windows beheer</host>
                             </resource>
                             <width>500</width>
                             <height>100</height>
@@ -238,12 +237,9 @@ Version : 0.1</description>
             </screens>
         </template>
         <template>
-            <template>Template CFIT - OS Windows Services</template>
-            <name>Template CFIT - OS Windows Services</name>
+            <template>Template Base - OS Windows Services</template>
+            <name>Template Base - OS Windows Services</name>
             <description>Windows services template for OS Windows management&#13;
-Property of Conclusion Future IT&#13;
-&#13;
-Platform owner : Nick Visser&#13;
 version 0.1</description>
             <groups>
                 <group>
