@@ -12,7 +12,7 @@ Attach the template to an host
 
 set the following macro variables
 
-`{!HOST_NAME}  IP or HOST of the fileserver`
+`{!HOST_IP}  IP or HOST of the fileserver`
 
 `{!SHARE_NAME} name of the share`
 
