@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zabbix_export>
     <version>5.0</version>
-    <date>2021-08-27T07:50:43Z</date>
+    <date>2021-08-27T13:42:34Z</date>
     <groups>
         <group>
             <name>Templates/Modules</name>
@@ -12,11 +12,6 @@
             <template>Template Readsoft - active</template>
             <name>Template Readsoft - active</name>
             <description>Custom template for Readsoft software by Marcel Stangenberger</description>
-            <templates>
-                <template>
-                    <name>Template Check fileshare</name>
-                </template>
-            </templates>
             <groups>
                 <group>
                     <name>Templates/Modules</name>
@@ -90,7 +85,7 @@
             <macros>
                 <macro>
                     <macro>{$SERVICE.NAME.MATCHES}</macro>
-                    <value>^INVOICES.PMService|INVOICES PMService.Client.exe|RicohEmpireService|Readsoft Production$</value>
+                    <value>^WSRicohEmpire|Readsoft|INVOICES.PMService.exe|INVOICES.PMService.Client.exe|ReadSoft Production$</value>
                 </macro>
                 <macro>
                     <macro>{$SERVICE.STARTUPNAME.MATCHES}</macro>
