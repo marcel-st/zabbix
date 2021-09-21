@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<zabbix_export>
+    <version>5.0</version>
+    <date>2021-09-21T09:04:30Z</date>
+    <groups>
+        <group>
+            <name>Templates</name>
+        </group>
+    </groups>
+    <templates>
+        <template>
+            <template>Template Microsoft Windows Certificates</template>
+            <name>Template Microsoft Windows Certificates</name>
+            <description>Template Microsoft Windows Certificates in store Local Machine&#13;
+Version: 1.0</description>
+            <groups>
+                <group>
+                    <name>Templates</name>
+                </group>
+            </groups>
+            <applications>
+                <application>
+                    <name>Local machine certificates</name>
+                </application>
+            </applications>
+            <discovery_rules>
+                <discovery_rule>
+                    <name>Local machine certificates discover</name>
+                    <type>ZABBIX_ACTIVE</type>
+                    <key>windows.certs[discover,lm_certs]</key>
+                    <delay>5m</delay>
+                    <lifetime>7d</lifetime>
+                    <item_prototypes>
+                        <item_prototype>
+                            <name>Certificate &quot;{#LM_CERT_CN} ({#LM_CERT_FRIENDLYNAME})&quot; days to expire</name>
+                            <type>DEPENDENT</type>
+                            <key>windows.certs.lm.daystoexpire[{#LM_CERT_THUMBPRINT}]</key>
+                            <delay>0</delay>
+                            <history>3d</history>
+                            <trends>3d</trends>
+                            <units>s</units>
+                            <description>When cert will be expire</description>
+                            <applications>
+                                <application>
+                                    <name>Local machine certificates</name>
+                                </application>
+                            </applications>
+                            <preprocessing>
+                                <step>
+                                    <type>JSONPATH</type>
+                                    <params>$.DaysToExpire</params>
+                                </step>
+                                <step>
+                                    <type>MULTIPLIER</type>
+                                    <params>86400</params>
+                                </step>
+                            </preprocessing>
+                            <master_item>
+                                <key>windows.certs[get,lm_cert,{#LM_CERT_THUMBPRINT}]</key>
+                            </master_item>
+                            <trigger_prototypes>
+                                <trigger_prototype>
+                                    <expression>{last()}=0</expression>
+                                    <recovery_mode>RECOVERY_EXPRESSION</recovery_mode>
+                                    <recovery_expression>{last()}&lt;&gt;0</recovery_expression>
+                                    <name>Certificate &quot;{#LM_CERT_CN} ({#LM_CERT_FRIENDLYNAME})&quot; is expired</name>
+                                    <priority>DISASTER</priority>
+                                </trigger_prototype>
+                                <trigger_prototype>
+                                    <expression>{last()}=1</expression>
+                                    <recovery_mode>RECOVERY_EXPRESSION</recovery_mode>
+                                    <recovery_expression>{last()}&gt;1</recovery_expression>
+                                    <name>Certificate &quot;{#LM_CERT_CN} ({#LM_CERT_FRIENDLYNAME})&quot; is expiring today</name>
+                                    <priority>HIGH</priority>
+                                </trigger_prototype>
+                                <trigger_prototype>
+                                    <expression>{last()}&lt;={$WINDOWS_CERT_DAYS_TO_EXPIRE_AVERAGE}</expression>
+                                    <recovery_mode>RECOVERY_EXPRESSION</recovery_mode>
+                                    <recovery_expression>{last()}&gt;{$WINDOWS_CERT_DAYS_TO_EXPIRE_AVERAGE}</recovery_expression>
+                                    <name>Certificate &quot;{#LM_CERT_CN} ({#LM_CERT_FRIENDLYNAME})&quot; is expiring to {$WINDOWS_CERT_DAYS_TO_EXPIRE_AVERAGE}  days ({ITEM.LASTVALUE1} left)</name>
+                                    <priority>AVERAGE</priority>
+                                </trigger_prototype>
+                                <trigger_prototype>
+                                    <expression>{last()}&lt;={$WINDOWS_CERT_DAYS_TO_EXPIRE_INFO}</expression>
+                                    <recovery_mode>RECOVERY_EXPRESSION</recovery_mode>
+                                    <recovery_expression>{last()}&gt;{$WINDOWS_CERT_DAYS_TO_EXPIRE_INFO}</recovery_expression>
+                                    <name>Certificate &quot;{#LM_CERT_CN} ({#LM_CERT_FRIENDLYNAME})&quot; is expiring to {$WINDOWS_CERT_DAYS_TO_EXPIRE_INFO}  days ({ITEM.LASTVALUE1} left)</name>
+                                    <priority>INFO</priority>
+                                </trigger_prototype>
+                                <trigger_prototype>
+                                    <expression>{last()}&lt;={$WINDOWS_CERT_DAYS_TO_EXPIRE_WARN}</expression>
+                                    <recovery_mode>RECOVERY_EXPRESSION</recovery_mode>
+                                    <recovery_expression>{last()}&gt;{$WINDOWS_CERT_DAYS_TO_EXPIRE_WARN}</recovery_expression>
+                                    <name>Certificate &quot;{#LM_CERT_CN} ({#LM_CERT_FRIENDLYNAME})&quot; is expiring to {$WINDOWS_CERT_DAYS_TO_EXPIRE_WARN}  days ({ITEM.LASTVALUE1} left)</name>
+                                    <priority>WARNING</priority>
+                                </trigger_prototype>
+                            </trigger_prototypes>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>Certificate &quot;{#LM_CERT_CN} ({#LM_CERT_FRIENDLYNAME})&quot; expire date</name>
+                            <type>DEPENDENT</type>
+                            <key>windows.certs.lm.expiredate[{#LM_CERT_THUMBPRINT}]</key>
+                            <delay>0</delay>
+                            <history>3d</history>
+                            <trends>0</trends>
+                            <value_type>TEXT</value_type>
+                            <applications>
+                                <application>
+                                    <name>Local machine certificates</name>
+                                </application>
+                            </applications>
+                            <preprocessing>
+                                <step>
+                                    <type>JSONPATH</type>
+                                    <params>$.ExpireDate</params>
+                                </step>
+                            </preprocessing>
+                            <master_item>
+                                <key>windows.certs[get,lm_cert,{#LM_CERT_THUMBPRINT}]</key>
+                            </master_item>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>Certificate &quot;{#LM_CERT_CN} ({#LM_CERT_FRIENDLYNAME})&quot; issued by</name>
+                            <type>DEPENDENT</type>
+                            <key>windows.certs.lm.issuedby[{#LM_CERT_THUMBPRINT}]</key>
+                            <delay>0</delay>
+                            <history>3d</history>
+                            <trends>0</trends>
+                            <value_type>TEXT</value_type>
+                            <applications>
+                                <application>
+                                    <name>Local machine certificates</name>
+                                </application>
+                            </applications>
+                            <preprocessing>
+                                <step>
+                                    <type>JSONPATH</type>
+                                    <params>$.IssuedBy</params>
+                                </step>
+                            </preprocessing>
+                            <master_item>
+                                <key>windows.certs[get,lm_cert,{#LM_CERT_THUMBPRINT}]</key>
+                            </master_item>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>Certificate &quot;{#LM_CERT_CN} ({#LM_CERT_FRIENDLYNAME})&quot; issued date</name>
+                            <type>DEPENDENT</type>
+                            <key>windows.certs.lm.issueddate[{#LM_CERT_THUMBPRINT}]</key>
+                            <delay>0</delay>
+                            <history>3d</history>
+                            <trends>0</trends>
+                            <value_type>TEXT</value_type>
+                            <applications>
+                                <application>
+                                    <name>Local machine certificates</name>
+                                </application>
+                            </applications>
+                            <preprocessing>
+                                <step>
+                                    <type>JSONPATH</type>
+                                    <params>$.IssuedDate</params>
+                                </step>
+                            </preprocessing>
+                            <master_item>
+                                <key>windows.certs[get,lm_cert,{#LM_CERT_THUMBPRINT}]</key>
+                            </master_item>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>Certificate &quot;{#LM_CERT_CN} ({#LM_CERT_FRIENDLYNAME})&quot; run checks</name>
+                            <type>ZABBIX_ACTIVE</type>
+                            <key>windows.certs[get,lm_cert,{#LM_CERT_THUMBPRINT}]</key>
+                            <history>3d</history>
+                            <trends>0</trends>
+                            <value_type>TEXT</value_type>
+                            <applications>
+                                <application>
+                                    <name>Local machine certificates</name>
+                                </application>
+                            </applications>
+                        </item_prototype>
+                    </item_prototypes>
+                </discovery_rule>
+            </discovery_rules>
+            <macros>
+                <macro>
+                    <macro>{$WINDOWS_CERT_DAYS_TO_EXPIRE_AVERAGE}</macro>
+                    <value>3</value>
+                </macro>
+                <macro>
+                    <macro>{$WINDOWS_CERT_DAYS_TO_EXPIRE_INFO}</macro>
+                    <value>30</value>
+                </macro>
+                <macro>
+                    <macro>{$WINDOWS_CERT_DAYS_TO_EXPIRE_WARN}</macro>
+                    <value>7</value>
+                </macro>
+            </macros>
+        </template>
+    </templates>
+</zabbix_export>
