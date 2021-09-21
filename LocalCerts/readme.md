@@ -25,7 +25,7 @@ Zabbix Agent Active
 1. if not yet created, create the folders c:\zabbixdata\externalscripts
 2. upload the powershell script to c:\zabbixdata\externalscripts
 3. Search the zabbix agent configuration for the following line
-    # UnsafeUserParameters=0
+    \# UnsafeUserParameters=0
   now ensure the "#" is removed as the start of this line and set the value to "1".
   So the line should look like
     UnsafeUserParameters=1
