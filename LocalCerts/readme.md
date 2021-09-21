@@ -22,7 +22,7 @@ Zabbix Agent Active
 ## Installation
 
 ### On the host
-1. if not yet created, create the folders `c:\zabbixdata\externalscripts`
+1. if not yet created, create the folder(s) `c:\zabbixdata\externalscripts`
 2. upload the powershell script to c:\zabbixdata\externalscripts
 3. Search the zabbix agent configuration for the following line
 
