@@ -21,7 +21,7 @@ Zabbix Agent Active
 
 ## Installation
 
-### On the client
+### On the host
 1. if not yet created, create the folders `c:\zabbixdata\externalscripts`
 2. upload the powershell script to c:\zabbixdata\externalscripts
 3. Search the zabbix agent configuration for the following line
@@ -31,3 +31,7 @@ Zabbix Agent Active
     `UnsafeUserParameters=1`
 4. Add the following line to the bottom of the configuration file
   `UserParameter=windows.certs[*],powershell -NoProfile -ExecutionPolicy Bypass -File "c:\zabbixdata\externalscripts\windows_certs.ps1" -ActionType "$1" -Key "$2" -Value "$3"`
+
+### On the Zabbix Server
+1. Import the template
+2. Assign template to a host
