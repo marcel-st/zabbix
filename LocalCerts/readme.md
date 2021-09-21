@@ -7,17 +7,17 @@ It is based on the work of [itmicus](https://github.com/itmicus/zabbix/tree/mast
 
 ## Features
 
-Monitoring and LLD : get all certificates in local machine, and get days to expire certificate
-Triggers for days to expire
-Independent OS language
-Setting configuring by User Macros
+* Monitoring and LLD : get all certificates in local machine, and get days to expire certificate
+* Triggers for days to expire
+* Independent OS language
+* Setting configuring by User Macros
 
 ## Requirements
 
-Windows 7 or better
-Windows Server 2008R2 or better
-Powershell 3 or better
-Zabbix Agent Active
+* Windows 7 or better
+* Windows Server 2008R2 or better
+* Powershell 3 or better
+* Zabbix Agent Active
 
 ## Installation
 
